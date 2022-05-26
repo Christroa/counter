@@ -1,0 +1,209 @@
+$primary: #26baff;
+$background: #3f23bc;
+
+.bgdark {
+    background: #333;
+}
+
+.primary {
+    color: $primary;
+}
+
+* {
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: #fff;
+    transition: all .4s ease-in-out;
+}
+
+.darkLight {
+    position: absolute;
+    display: flex;
+    top: 10px;
+    right: 20px;
+    background: #fff;
+    border-radius: 30px;
+    height: 35px;
+    width: 100px;
+    
+    
+    align-items: center;
+
+    .dark {
+        background: #333;
+        position: absolute;
+        padding: 5px;
+        height: 90%;
+        width: 60px;
+        transform: translate(60%);
+        border-radius: 30px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .light {
+        background: $background;
+        position: absolute;
+        padding: 5px;
+        height: 90%;
+        width: 60px;
+        transform: translate(8%);
+        border-radius: 30px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+}
+
+
+.container {
+    position: relative;
+    max-width: 1240px;
+    margin: auto;
+}
+body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: $background;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+h2 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+}
+h5 {
+    font-size: 1rems;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.btn {
+    padding: 14px 32px;
+    border: 1px solid $primary;
+    background: $primary;
+    border-radius: 24px 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    min-width: 100%;
+    cursor: pointer;
+    &:hover {
+        box-shadow: rgba(255, 255, 255, 0.25) 0px 8px 24px;
+    }
+}
+
+input {
+    padding: 12px 32px;
+    border: 1px solid $primary;
+    background: transparent;
+    border-radius: 24px 4px;
+    font-size: 1rem;
+    margin-right: 0.8rem;
+    font-family: Poppins;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-areas: 'header' 'counter' 'footer';
+    justify-items: center;
+    align-items: center;
+
+    .header {
+        grid-area: header;
+    }
+    .counter {
+        grid-area: counter;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 'minus val plus'
+        '. reset .';
+        grid-template-rows: repeat(2, 1fr);
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+        align-content: center;
+        gap: 60px;
+
+        .plus {
+            grid-area: plus;
+        }
+        .minus {grid-area: minus;
+        }
+        .reset {
+            grid-area: reset;
+        }
+        h5 {
+            grid-area: val;
+            font-size: 1.9rem;
+        }
+    }
+    .footer {
+        grid-area: footer;
+    }
+}
+
+@media screen and (max-width:768px) {
+    h1 {
+        font-size: 2.1em;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        line-height: 1.2;
+    }
+    h5 {
+        font-size: 1.1em;
+        line-height: 1.2;
+    }
+    p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    input {
+        width: 100%;
+    }
+    .counter {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 20px !important;
+
+        h5 {
+            font-size: 1.9rem;
+        }
+    }
+}
+
+  
