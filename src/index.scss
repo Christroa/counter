@@ -1,209 +1,205 @@
-$primary: #26baff;
-$background: #3f23bc;
-
-.bgdark {
-    background: #333;
-}
-
-.primary {
-    color: $primary;
-}
-
 * {
     margin: 0;padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    color: #fff;
+    color: #333;
     transition: all .4s ease-in-out;
+    font-family: nunito;
+    outline: none;
 }
-
-.darkLight {
-    position: absolute;
-    display: flex;
-    top: 5px;
-    right: 20px;
-    background: #fff;
-    border-radius: 30px;
-    height: 35px;
-    width: 100px;
-    
-    
-    align-items: center;
-
-    .dark {
-        background: #333;
-        position: absolute;
-        padding: 5px;
-        height: 90%;
-        width: 60px;
-        transform: translate(60%);
-        border-radius: 30px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-    .light {
-        background: $background;
-        position: absolute;
-        padding: 5px;
-        height: 90%;
-        width: 60px;
-        transform: translate(8%);
-        border-radius: 30px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-    
-}
-
-
-.container {
-    position: relative;
-    max-width: 1240px;
-    margin: auto;
-}
-body {
-    margin: 0;
-    font-family: 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: $background;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-
-  h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-}
-h2 {
-    font-size: 2.4rem;
-    line-height: 1.2;
-}
-h5 {
-    font-size: 1rems;
-    line-height: 1.2;
-}
-
-p {
-    font-size: 1.2rem;
-}
-
-.btn {
-    padding: 14px 32px;
-    border: 1px solid $primary;
-    background: $primary;
-    border-radius: 24px 4px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    min-width: 100%;
-    cursor: pointer;
-    &:hover {
-        box-shadow: rgba(255, 255, 255, 0.25) 0px 8px 24px;
-    }
-}
-
-input {
-    padding: 12px 32px;
-    border: 1px solid $primary;
-    background: transparent;
-    border-radius: 24px 4px;
+.details {
+    // margin-top: 2rem;
+    padding-left: 1rem;
     font-size: 1rem;
-    margin-right: 0.8rem;
-    font-family: Poppins;
+    color: #fff;
+    font-weight: 700;
+    margin: 10px 0;
+    animation: blink .2s .2s 4 linear;
+    z-index: 999;
 }
-
-.container {
+@keyframes blink {
+    from {
+        opacity: 0;
+    }
+}
+body{
+    background: linear-gradient(to right, #d5a1ff, rgb(224, 125, 224));
     height: 100vh;
+    margin: 2rem auto;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 5fr 1fr;
-    grid-template-areas: 'header' 'counter' 'footer';
-    justify-items: center;
     align-items: center;
+    overflow: auto;
 
-    .header {
-        grid-area: header;
+}
+.fromCard {
+    background-color: #fff;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .pic {
+        padding: 2rem;
+        flex: 1;
+        position: relative;
+        h2, h3 {
+            padding: 0 1rem;
+            color: #fff;
+            z-index: 3;
+            &:nth-child(2) {
+                color: rgb(62, 25, 71);
+                font-weight: 900;
+                text-transform: uppercase;
+            }
+        }
+        img{
+            width: 120%;
+            position: absolute;
+            bottom: -10px;
+            left: -30px;
+        }
+        background: rgb(181, 62, 236);
     }
-    .counter {
-        grid-area: counter;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: 'minus val plus'
-        '. reset .';
-        grid-template-rows: repeat(2, 1fr);
-        justify-items: center;
-        justify-content: center;
+    form {
+        flex: 1;
+        padding: 2rem;
+        background: #fff;
         text-align: center;
-        align-content: center;
-        gap: 60px;
+        .inputs {
+            margin-bottom: .5rem;
+            label {
+                display: block;
+                text-align:left ;
+                font-size: .9rem;
+            }
+            input {
+                width: 100%;
+                border: .1rem solid rgba(51, 51, 51, 0.1);
+                border-radius: .5rem;
+                background: none;
+                padding: .5rem;
+                box-shadow: 0 0 3px rgba(51, 51, 51, 0.1);
+            }
+        }
+        i {
+            font-style:normal;
+            color: #333 !important;
+            // padding: .2rem 0;
+        }
+        .container {
+            display: grid;
+            column-gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "fname lname" "email email" "password password" "rpassword rpassword";
+            
+            .fname {
+                grid-area: fname;
+            }
+            .lname {
+                grid-area: lname;
+            }
+            .email {
+                grid-area: email;
+            }
+            .password {
+                grid-area: password;
+            }
+            .rpassword {
+                grid-area: rpassword;
+            }
+        }
 
-        .plus {
-            grid-area: plus;
+        > span {
+            display: block;
+            text-align: left;
+            i {
+                color: #333;
+                font-size: .9rem;
+            }
         }
-        .minus {grid-area: minus;
+        .btn {
+            background: #fff;
+            border-radius: .5rem;
+            border: none;
+            padding: .7rem;
+            margin: .5rem 0;
+            cursor: pointer;
+            
         }
-        .reset {
-            grid-area: reset;
+        .reg {
+            display: block;
+            width: 100%;
+            background: rgb(169, 68, 252);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
         }
-        h5 {
-            grid-area: val;
-            font-size: 1.9rem;
+        .fb {
+            margin-left: .5rem;
         }
-    }
-    .footer {
-        grid-area: footer;
+        .google, .fb {
+            border: 1px solid rgba(51, 51, 51, 0.438);
+        }
+        p {
+            color: #333;text-align: center; 
+            i{color: #c178fd !important; cursor: pointer;}
+        }
+        .sup {
+            margin-top: 0.3rem;
+            text-align: center;
+            button {display: inline-block;width: 5px;margin-right: 0.2rem;}
+        }
+                border-radius: .5rem;
+        i {color: #ffb500;}
     }
 }
 
-@media screen and (max-width:768px) {
-    h1 {
-        font-size: 2.1em;
-        line-height: 1.2;
+@media screen and (max-width: 768px) {
+    .details {
+        background: rgba(0, 0, 0, 0.5);
+        display: inline-block;
+        padding: 5px 10px;
+        backdrop-filter: blur(2px);
+        border-radius: 5px;
     }
-
-    h2 {
-        font-size: 1.5em;
-        line-height: 1.2;
-    }
-    h5 {
-        font-size: 1.1em;
-        line-height: 1.2;
-    }
-    p {
-        font-size: 1rem;
-    }
-
-    .btn {
-        width: 100%;
-        margin: 1rem 0;
-    }
-
-    input {
-        width: 100%;
-    }
-    .counter {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        gap: 20px !important;
-
-        h5 {
-            font-size: 1.9rem;
+    @keyframes blink {
+        from {
+            opacity: 0;
         }
     }
-}
+    .fromCard {
+        max-width: 100%;
+        margin: 0 2rem;
+        overflow: hidden;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: stretch;
+        
+        .pic {
+            overflow: hidden;
+        background: rgb(181, 62, 236) url("./assets/mypic.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center 40px;
 
-  
+        .cont{
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            backdrop-filter: blur(2px);
+            
+        }
+            img {
+                // top: -30px;
+                display: none;
+            }
+        }
+    }
+    .container {
+        display: none;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "fname fname" "lname lname" "email email" "password password" "rpassword rpassword" !important;
+    }
+}
